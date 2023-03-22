@@ -47,7 +47,7 @@ module.exports = class AuthController{
             const createdUser = await User.create(user)
 
             req.session.userid = createdUser.id
-            
+
             req.flash('message', 'Cadastro realizado com sucesso!')
 
             req.session.save(() => {
@@ -57,5 +57,10 @@ module.exports = class AuthController{
         }catch(err){
             console.log(err)
         }
+    }
+
+    static logout(req, res){
+        req.session.destroy()
+        res.redirect('/login')
     }
 }
