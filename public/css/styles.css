@@ -101,9 +101,7 @@
     border: 1px solid #F6982D;
 }
 
-
-form input[type='submit'],
-btn{
+form input[type='submit'],.btn{
     background-color: transparent;
     color: #F6982D;
     border: 2px solid #F6982D;
@@ -118,10 +116,34 @@ btn{
 }
 
 form input[type='submit']:hover,
-btn:hover{
+.btn:hover{
     background-color: #F6982D;
     color: #fff;
 }
+
+
+/* CREATE AND EDIT FORM */
+
+.tought-form-container a{
+    color: #F6982D;
+}
+
+.tought-form-container a:hover{
+    color: #fff;
+}
+
+.tought-form-container h1{
+    margin: 1em 0;
+    color: #fff;
+    border-left: 4px solid #F6982D;
+    padding: .3em;
+}
+
+.tought-form-container form{
+    max-width: 30%;
+    margin-top: 1.5em;
+}
+
 
 /* footer */
 
