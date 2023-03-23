@@ -8,7 +8,6 @@ module.exports = class ToughtsController {
 
     static async dashboard(req, res) {
         const userId = req.session.userid
-        console.log('USER ID ----> ' + userId)
 
         const user = await User.findOne({
             where: {
@@ -23,13 +22,14 @@ module.exports = class ToughtsController {
             res.redirect('/login')
         }
 
-        console.log('USUARIOOO -> ' + user.Toughts)
-
         const toughts = user.Toughts.map((result) => result.dataValues) 
 
-        console.log('ARRAY -> ' + toughts)
+        let emptyToughts = false
 
-        res.render('toughts/dashboard', {toughts})
+        toughts.length === 0 ?  emptyToughts = true :  emptyToughts = false
+        
+
+        res.render('toughts/dashboard', {toughts, emptyToughts})
     }
 
     static createTought(req, res) {
