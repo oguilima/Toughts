@@ -107,10 +107,13 @@ module.exports = class ToughtsController {
 
     static async updateTought(req, res) {
         const id = req.params.id
+        const UserId = req.session.userid
 
-        const tought = await Tought.findOne({ where: { id: id }, raw: true })
+        const tought = await Tought.findOne({ where: { id: id,  UserId: UserId}, raw: true })
 
-        res.render('toughts/edit', { tought })
+        tought ? res.render('toughts/edit', { tought }) : res.redirect('/toughts/dashboard')
+
+        
     }
 
     static async updateToughtSave(req, res) {
